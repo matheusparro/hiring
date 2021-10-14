@@ -11,8 +11,8 @@ class Stock extends Model {
     });
   }
 
-  // static associate(models) {
-  //   this.belongsTo(models.City, { foreignKey: 'city_id', as: 'city' });
-  // }
+  static associate(models) {
+    this.hasMany(models.Price, { foreignKey: 'stockId', as: 'prices' });
+  }
 }
 module.exports = Stock;

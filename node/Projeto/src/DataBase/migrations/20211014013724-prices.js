@@ -9,7 +9,7 @@ module.exports = {
         allownull: false,
         unique: true,
       },
-      idStocks: {
+      stockId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -36,7 +36,7 @@ module.exports = {
         allowNull: false,
       },
       pricedAt: {
-        type: Sequelize.NUMERIC,
+        type: Sequelize.DATE,
         allowNull: false,
       },
       createdAt: {

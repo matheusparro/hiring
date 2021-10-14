@@ -6,7 +6,7 @@ require('./DataBase/index.js');
 const app = express();
 app.use(express.json());
 
-const port = '8006';
+const port = '3333';
 
 app.use(routes);
 
