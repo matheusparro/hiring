@@ -1,13 +1,15 @@
-import express from 'express';
-import routes from './routes.js';
+const express = require('express');
+const routes = require('./routes.js');
+
+require('./DataBase/index.js');
 
 const app = express();
 app.use(express.json());
 
-const port = process.env.PORT || '3333';
+const port = '8006';
 
 app.use(routes);
 
 app.listen(port);
 
-export default app;
+module.exports = app;

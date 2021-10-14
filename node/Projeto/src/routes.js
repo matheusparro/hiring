@@ -1,9 +1,10 @@
-import express from 'express';
+const express = require('express');
+const StockController = require('./controllers/StockController.js');
 
 const routes = express.Router();
 
-routes.get('/nfsnotafiscal', (req, res) => {
-  res.send({ message: 'Server ON' });
+routes.get('/a', (req, res) => {
+  res.send({ message: 'Server ONadsadsaaaa' });
 });
-
-export default routes;
+routes.post('/stock', StockController.createStock);
+module.exports = routes;
