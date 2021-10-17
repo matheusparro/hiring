@@ -1,0 +1,78 @@
+.contentContainer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  align-items: center;
+  margin-top:5%
+}
+.gridContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.divInput{
+  margin-top:1rem;
+  width: 100%;
+  label{
+    display:block
+  }
+  input{
+    border-radius: 10px 10px 10px 10px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    margin-top: 0.5rem;
+  }
+  button{
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top:0.5rem;
+    width: 100%;
+
+  }
+  button:hover
+{
+  background-color: #F082AC;
+}
+button:last-child{
+  background-color: rgb(21, 160, 21);
+}
+button:last-child:hover
+ {
+  background-color: rgb(72, 192, 72);
+}
+
+}
+.myStocks{
+  h3{
+    text-align: center;
+  }
+  h1{
+    margin-left: 5rem;
+    margin-top:1rem;
+  }
+
+}
+
+
+
