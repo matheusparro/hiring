@@ -43,11 +43,14 @@ async function findByInterval(req, res) {
       where: {
 
         pricedAt: {
-          [Op.between]: [from, to],
+          [Op.and]: [{ [Op.gte]: from }, { [Op.lte]: to }],
         },
       },
     },
   });
+  if (!stockFind) {
+    return res.status(401).json({ error: 'Stock not found' });
+  }
   const { name, prices } = stockFind;
 
   return res.status(201).json({ name, prices });
