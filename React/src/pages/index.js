@@ -20,7 +20,13 @@ export default function Home() {
       fetch(`http://localhost:3333/stocks/${textStockName}/history?from=${dateFromStock}&to=${dateToStock}`)
       .then(response => response.json())
       .then((data)=>{
-       console.log(data)
+        if(!data.error){
+          debugger
+          setStockHistory(data.prices)
+          setTextHistoryPrice(data.name)
+          console.log(data)
+          console.log('http://localhost:3333/stocks/${textStockName}/history?from=${dateFromStock}&to=${dateToStock}')
+        }
         
       } )
     }else{
@@ -28,8 +34,9 @@ export default function Home() {
     (textStockName ? fetch(`http://localhost:3333/stocks/${textStockName}/quote`): fetch('http://localhost:3333/stocks') )
     .then(response => response.json())
     .then((data)=>{
+      if(!data.error){
       (textStockName ?setStocks([data]) : setStocks(data) )
-      
+      }
     } )
   }
   }
@@ -39,21 +46,25 @@ export default function Home() {
       fetch(`http://localhost:3333/stocks/${textStockName}/quote`)
       .then(response => response.json())
       .then((data)=>{
-        // setMyStock
-        setMyStock([...myStock,data]) 
-        console.log([data])
-        
+        if(!data.error){
+          setMyStock([...myStock,data]) 
+          console.log([data])
+        }
       } )
     }else{
       alert("Please write the stock's name")
     }
   }
 
+  function calculate(){
+
+  }
+
 
     
   return (
    <div className={styles.contentContainer}>
-     <h1>Stock Market</h1>
+     <span  className={styles.logo}><h1>Stock</h1> <h1>Market</h1></span>
      <div className={styles.gridContainer}>
       <div className={styles.divInput}>
           <label className={styles.inputStockLabel}> Stock Name</label>   
@@ -70,7 +81,8 @@ export default function Home() {
 
           <label className={styles.inputStockLabel}> Projeção de ganhos</label>   
           <input onChange={(e)=> setProjectionStock(e.target.value)} className={styles.inputStock} type="number"/>
-          <button onClick={busca}>Search</button>
+          <button className={styles.searchButton} onClick={busca}>Search</button>
+          <button onClick={addMyStock}>Calculate</button>
           <button onClick={addMyStock}>+</button>
         </div>
         <div className={styles.myStocks}>
@@ -102,11 +114,14 @@ export default function Home() {
               <th>Closing</th>
               <th>PricedAt</th>
             </tr>
-            {myStock.map(stock =>{
+            {stockHistory.map(stock =>{
+              
               return (
-                <tr key={stock.name}>
-                <td>{stock.name}</td>
-                <td>{stock.lastPrice}</td>
+                <tr key={stock.pricedAt}>
+                <td>{stock.opening}</td>
+                <td>{stock.low}</td>
+                <td>{stock.high}</td>
+                <td>{stock.closing}</td>
                 <td>{stock.pricedAt}</td>
               </tr>
               )

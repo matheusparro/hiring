@@ -17,6 +17,9 @@ async function findAllStocks(req, res) {
   const stockFind = await Stock.findAll({
     include: { association: 'prices' },
   });
+  if (!stockFind) {
+    return res.status(404).json({ error: 'Stocks not found' });
+  }
   return res.status(201).json(stockFind);
 }
 
@@ -27,6 +30,9 @@ async function findByQuote(req, res) {
       name: stock_name,
     },
   });
+  if (!stockFind) {
+    return res.status(401).json({ error: `Stock ${stock_name} not found` });
+  }
   return res.status(201).json(stockFind);
 }
 

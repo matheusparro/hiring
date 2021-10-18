@@ -4,7 +4,24 @@
   padding: 0 2rem;
 
   align-items: center;
-  margin-top:5%
+  margin-top:5%;
+
+  th{
+  
+    background-color: #efefef;
+    color: black;
+  
+  }
+  .logo{
+    display: flex;
+    h1{
+      color:#EA4C89;
+    }
+    h1:last-child{
+      margin-left: 0.5rem;
+      color:rgb(21, 160, 21)
+    }
+  }
 }
 .gridContainer{
   display: grid;
@@ -25,7 +42,7 @@
     margin-top: 0.5rem;
   }
   button{
-    background-color: #EA4C89;
+   background-color:blue;
     border-radius: 8px;
     border-style: none;
     color: #FFFFFF;
@@ -50,10 +67,9 @@
     width: 100%;
 
   }
-  button:hover
-{
-  background-color: #F082AC;
-}
+  button:hover{
+    background-color:rgb(52, 52, 252);
+  }
 button:last-child{
   background-color: rgb(21, 160, 21);
 }
@@ -62,6 +78,12 @@ button:last-child:hover
   background-color: rgb(72, 192, 72);
 }
 
+}
+.searchButton{
+  background-color: #ec2370 !important;
+}
+.searchButton:hover{
+  background-color: #e64582 !important;
 }
 .myStocks{
   margin-left: 5rem;
@@ -79,7 +101,7 @@ button:last-child:hover
   table {
     border-collapse: collapse;
     border: 1px solid black;
-    table-layout: fixed;
+    table-layout: auto;
   width: 100%; 
   } 
   th,td {
